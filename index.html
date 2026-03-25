@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earthy Kitchen Finds - Premium Kitchen Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sage: #7a9b6b;
+            --cream: #f5f1ed;
+            --earth: #8b7355;
+            --dark-green: #4a6d3e;
+            --charcoal: #2d2d2d;
+            --accent-terracotta: #d4876b;
+            --accent-copper: #b8860b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #faf8f5) 100%;
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* BACKGROUND TEXTURE */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(122, 155, 107, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 135, 107, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* HEADER */
+        header {
+            padding: 2rem;
+            text-align: center;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-title {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--sage);
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        .header-subtitle {
+            font-size: 1rem;
+            color: var(--earth);
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .header-description {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            max-width: 500px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* PRODUCT GRID */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        /* PRODUCT CARD */
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.8s ease-out backwards;
+            border: 1px solid rgba(122, 155, 107, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(122, 155, 107, 0.15);
+            border-color: var(--sage);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, var(--cream) 0%, #f9f6f3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
+        }
+
+        .product-card:hover .product-image {
+            background: linear-gradient(135deg, #f9f6f3 0%, #f5f1ed 100%);
+        }
+
+        .product-content {
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--sage);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-family: 'Lora', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+            font-weight: 300;
+        }
+
+        /* CTA BUTTON */
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.5rem;
+            background: linear-gradient(135deg, var(--sage) 0%, #6d8b60 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sage);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .product-link:hover {
+            background: var(--dark-green);
+            border-color: var(--dark-green);
+            transform: translateX(4px);
+            box-shadow: 0 8px 16px rgba(122, 155, 107, 0.3);
+        }
+
+        .product-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(122, 155, 107, 0.1);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            .product-card {
+                margin: 0 auto;
+                max-width: 100%;
+            }
+        }
+
+        /* SCROLL ANIMATION */
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            color: var(--sage);
+            margin-bottom: 2rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-subtitle">Discover</div>
+        <h1 class="header-title">Earthy Kitchen Finds</h1>
+        <p class="header-description">Thoughtfully curated kitchen essentials that blend natural beauty with everyday functionality</p>
+    </header>
+
+    <div class="container">
+        <div class="products-grid">
+            <!-- Product 1: Ceramic Mugs -->
+            <div class="product-card">
+                <div class="product-image">☕</div>
+                <div class="product-content">
+                    <span class="product-category">Drinkware</span>
+                    <h2 class="product-name">Textured Ceramic Mugs</h2>
+                    <p class="product-description">Set of 4 modern white ceramic mugs with subtle ribbed texture. Perfect for coffee, tea, or your favorite hot beverage.</p>
+                    <a href="https://www.amazon.com/s?k=textured+ceramic+mug+set" target="_blank" rel="noopener noreferrer" class="product-link">
+                        View on Amazon
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="5 12 19 12"></polyline>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2: Wooden Spoons -->
+            <div class="product-card">
+                <div class="product-image">🥄</div>
+                <div class="product-content">
+                    <span class="product-category">Cooking Tools</span>
+                    <h2 class="product-name">Wooden Cooking Utensils</h2>
+                    <p class="product-description">Premium wooden spoon set featuring various sizes and styles—perfect for mixing, stirring, and serving. Heat-resistant and durable.</p>
+                    <a href="https://www.amazon.com/s?k=wooden+cooking+utensil+set" target="_blank" rel="noopener noreferrer" class="product-link">
+                        View on Amazon
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="5 12 19 12"></polyline>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 3: Cutting Boards -->
+            <div class="product-card">
+                <div class="product-image">🪵</div>
+                <div class="product-content">
+                    <span class="product-category">Prep & Serve</span>
+                    <h2 class="product-name">Premium Bamboo Cutting Boards</h2>
+                    <p class="product-description">Royal Craft Wood set of 3 carbonized bamboo cutting boards with elegant design. Durable, eco-friendly, and kitchen-ready.</p>
+                    <a href="https://www.amazon.com/s?k=bamboo+cutting+board+set" target="_blank" rel="noopener noreferrer" class="product-link">
+                        View on Amazon
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="5 12 19 12"></polyline>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 4: Kitchen Tool Set -->
+            <div class="product-card">
+                <div class="product-image">🎯</div>
+                <div class="product-content">
+                    <span class="product-category">Tools & Gadgets</span>
+                    <h2 class="product-name">Wooden Kitchen Tool Set</h2>
+                    <p class="product-description">Delightful collection of wood and metal kitchen tools in a beautiful holder. Includes whisks, mashers, and serving utensils.</p>
+                    <a href="https://www.amazon.com/s?k=wooden+kitchen+tool+set" target="_blank" rel="noopener noreferrer" class="product-link">
+                        View on Amazon
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="5 12 19 12"></polyline>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 5: Leaf-Shaped Dish -->
+            <div class="product-card">
+                <div class="product-image">🌿</div>
+                <div class="product-content">
+                    <span class="product-category">Serveware</span>
+                    <h2 class="product-name">Decorative Leaf Spoon Rest</h2>
+                    <p class="product-description">Charming ceramic dish shaped like a leaf with natural glaze. Beautiful for resting spoons, serving nuts, or kitchen décor.</p>
+                    <a href="https://www.amazon.com/s?k=leaf+shaped+ceramic+dish" target="_blank" rel="noopener noreferrer" class="product-link">
+                        View on Amazon
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="5 12 19 12"></polyline>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 6: Sage Dinnerware & Eucalyptus -->
+            <div class="product-card">
+                <div class="product-image">🍃</div>
+                <div class="product-content">
+                    <span class="product-category">Dinnerware & Décor</span>
+                    <h2 class="product-name">Sage Ceramic Set + Eucalyptus</h2>
+                    <p class="product-description">Earthy sage-colored dinnerware set paired with fresh eucalyptus sprigs. Complete your kitchen aesthetic with natural elegance.</p>
+                    <a href="https://www.amazon.com/s?k=sage+ceramic+dinnerware+set" target="_blank" rel="noopener noreferrer" class="product-link">
+                        View on Amazon
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="5 12 19 12"></polyline>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Earthy Kitchen Finds. All links lead to Amazon.</p>
+        <p>Curated products for a naturally beautiful kitchen.</p>
+    </footer>
+
+</body>
+</html>
